@@ -1,0 +1,35 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Dec 1, 2021, 10:53:12 AM
+    Author     : mugamba
+*/
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.welcome{
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+}
+.welcome .ptr1{
+    margin: 10px;
+    padding: 10px;
+    width: 500px;
+}
+
+.welcome .ptr2{
+    margin: 10px;
+    padding: 10px;
+    width: 500px;
+}
+.welcome .ptr2 input[type='text']{
+    margin: 10px;
+    width: 300px;
+    outline: none;
+}
