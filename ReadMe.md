@@ -1,4 +1,4 @@
-## This is a simple aplication of Vaccination track system
+## This is a simple java servlet application of a Vaccination Tracking system
 
 ### To acces it
 ```
