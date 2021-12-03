@@ -1,3 +1,7 @@
+
+
+
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
@@ -47,39 +51,31 @@ public class AdminLogin extends HttpServlet {
           /*
               AdminLogin
            **/
-           String email = request.getParameter("email");
-          String pass = request.getParameter("passcode");
-          RequestDispatcher dispatcher = null;
+              String email = request.getParameter("email");
+               String pass = request.getParameter("passcode");
+             try{
+           Class.forName("com.mysql.jdbc.Driver");
+           try{
+               Statement state = DriverManager.getConnection("jdbc:mysql://localhost:3306/vaccination","root","").createStatement();
+         ResultSet result = state.executeQuery("select email,password,role from admin");
+            while(result.next()){
+              if(email.equals(result.getString("email")) && pass.equals(result.getString("password"))){ 
 
-       try{
-     Class.forName("com.mysql.jdbc.Driver");
-      try{
-  Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/vaccination","root","");
-   Statement state = conn.createStatement();
-
-  ResultSet result = state.executeQuery("select email,password,role from admin");
-   while(result.next()){
-       if(email.equalsIgnoreCase(result.getString("email")) && pass.equalsIgnoreCase(result.getString("password"))){
-         if("Admin".equalsIgnoreCase(result.getString("role"))){
-             out.print("<script type='text/javascript'>window.location='Home.jsp'</script>");
-    }else{
-      out.print("Your an officer");
-     }
-      
-      } else{
-      request.setAttribute("email",email);
-      request.setAttribute("password", pass);
-      request.getRequestDispatcher("Login.jsp");
-      dispatcher.forward(request, response);
-     
-    }             
-       }
-  }catch(SQLException ex){
-        out.println("Error: "+ex.getMessage());
-    }
-    
+                   if("Admin".equals(result.getString("role"))){
+//                        HttpSession session = request.getSession();
+//                        session.setAttribute("role", "Admin");
+                       out.println("<script type='text/javascript'>window.location = './pages/dashboard.jsp';</script>");
+                   }
+             }else{
+        
+           out.println("<script type='text/javascript'>window.location = './';</script>");
+         }             
+         }
+       }catch(SQLException ex){
+             out.println("Error:"+ex.getMessage());
+        }
         }catch(ClassNotFoundException ex){
-            out.println("Error:"+ex.getMessage());
+           out.println("Error:"+ex.getMessage());
         }
         
 //            out.println("<h1>Servlet AdminLogin at " + request.getContextPath() + "</h1>");

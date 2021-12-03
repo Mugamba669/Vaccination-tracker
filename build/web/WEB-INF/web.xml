@@ -20,6 +20,10 @@
         <servlet-name>VaccineServlet</servlet-name>
         <servlet-class>org.health.vaccine.VaccineServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PatientServlet</servlet-name>
+        <servlet-class>org.health.administration.PatientServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Helper</servlet-name>
         <url-pattern>/Helper</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>VaccineServlet</servlet-name>
         <url-pattern>/VaccineServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PatientServlet</servlet-name>
+        <url-pattern>/PatientServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

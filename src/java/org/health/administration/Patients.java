@@ -15,13 +15,8 @@ import javax.servlet.jsp.tagext.SimpleTagSupport;
  */
 public class Patients extends SimpleTagSupport {
 
-    private String nin;
-    private String name;
-    private String dateOfVaccination;
-    private String vaccine;
-    private String returnDate;
-    private String batch;
-    private String healtCentre;
+    private String table;
+    private String values;
 
     /**
      * Called by the container to invoke this tag. The implementation of this
@@ -33,52 +28,24 @@ public class Patients extends SimpleTagSupport {
         JspWriter out = getJspContext().getOut();
         
         try {
-            // TODO: insert code to write html before writing the body content.
-            // e.g.:
-            //
-            // out.println("<strong>" + attribute_1 + "</strong>");
-            // out.println("    <blockquote>");
+            
 
             JspFragment f = getJspBody();
             if (f != null) {
                 f.invoke(out);
             }
 
-            // TODO: insert code to write html after writing the body content.
-            // e.g.:
-            //
-            // out.println("    </blockquote>");
         } catch (java.io.IOException ex) {
             throw new JspException("Error in Patients tag", ex);
         }
     }
 
-    public void setNin(String nin) {
-        this.nin = nin;
+    public void setTable(String table) {
+        this.table = table;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setDateOfVaccination(String dateOfVaccination) {
-        this.dateOfVaccination = dateOfVaccination;
-    }
-
-    public void setVaccine(String vaccine) {
-        this.vaccine = vaccine;
-    }
-
-    public void setReturnDate(String returnDate) {
-        this.returnDate = returnDate;
-    }
-
-    public void setBatch(String batch) {
-        this.batch = batch;
-    }
-
-    public void setHealtCentre(String healtCentre) {
-        this.healtCentre = healtCentre;
+    public void setValues(String values) {
+        this.values = values;
     }
     
 }

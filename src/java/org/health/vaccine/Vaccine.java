@@ -20,7 +20,7 @@ import javax.servlet.jsp.tagext.SimpleTagSupport;
 public class Vaccine extends SimpleTagSupport {
 
     private String table;
-    private String values;
+    private String values;// gdgdgd,dhhd,ddhdd,dhdhdh
      private  String[] arr;
     @Override
     public void doTag() throws JspException {
@@ -29,14 +29,15 @@ public class Vaccine extends SimpleTagSupport {
         try {
           arr = values.split(",");
           try{
+
             Class.forName("com.mysql.jdbc.Driver");
              try{
          Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/vaccination","root","");
-          Statement state = conn.createStatement();
+//Statement stst = conn.createStatement();
+ Statement state = conn.createStatement();
       /**id	name	totalVaccine****/
 if(arr.length > 1){
      state.execute("insert into "+ table +"(name,totalVaccine)values('"+arr[0]+"','"+arr[1]+"');");
-
        
             out.print("<script type='text/javascript'>alert('"+arr[0]+" has been registered')</script>");
              out.print("<script type='text/javascript'>window.location = 'Home.jsp'</script>");

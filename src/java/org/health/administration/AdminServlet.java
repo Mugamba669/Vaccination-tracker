@@ -45,13 +45,12 @@ public class AdminServlet extends HttpServlet {
              String role =  request.getParameter("role");
 
 
-              
                request.setAttribute("name", name);
                 request.setAttribute("email", email);  
                 request.setAttribute("role", role);
                  request.setAttribute("pass", pass);
 
-RequestDispatcher resq = request.getRequestDispatcher("register.jsp");
+RequestDispatcher resq = request.getRequestDispatcher("sign-up.jsp");
 resq.forward(request, response);
 
 //            out.println("<h1>Servlet AdminServlet at " + request.getContextPath() + "</h1>");

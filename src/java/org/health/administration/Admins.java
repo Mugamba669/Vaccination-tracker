@@ -18,6 +18,7 @@ import javax.servlet.jsp.tagext.SimpleTagSupport;
  *
  * @author mugamba
  */
+
 public class Admins extends SimpleTagSupport {
 
     private String table;
@@ -36,12 +37,8 @@ public class Admins extends SimpleTagSupport {
         try {
             // TODO: insert code to write html before writing the body content.
             // e.g.:
-            //
-         String[] arr = values.split(",");
-//             out.println("<b>Your email " + table + " pass "+ arr[0] +" and "+arr[1]+"</strong>");
-//             out.println(arr[0]);    
-//            out.println(arr[1]);
-//             out.println(arr[2]);
+            //fdfdf,ssysh,shsjd,
+         String[] arr = values.split(",");///[ndhd,gdhdu,fudj]
        try{
             Class.forName("com.mysql.jdbc.Driver");
              try{
@@ -49,7 +46,7 @@ public class Admins extends SimpleTagSupport {
           Statement state = conn.createStatement();
        if(arr.length > 1){
           state.execute("insert into "+ table +"(name,email,password,role)values('"+arr[0]+"','"+arr[1]+"','"+arr[2]+"','"+arr[3]+"');");
-          out.print("<script type='text/javascript'>window.location = 'Home.jsp'</script>");
+          out.print("<script type='text/javascript'>window.location = './pages/dashboard.jsp'</script>");
 
         }
          }catch(SQLException ex){
